@@ -6,34 +6,66 @@ import { IconAsk, IconExplain, IconCards, IconQuiz, IconArrow } from '../Icons.j
 ───────────────────────────────────────── */
 function MegaphoneIllus() {
   return (
-    <svg className="collage-illus collage-megaphone" width="168" height="126" viewBox="0 0 168 126" fill="none" aria-hidden="true">
+    // Bell faces left, handle lower-right. viewBox extends left for sound-wave lines.
+    <svg
+      className="collage-illus collage-megaphone"
+      width="148" height="96"
+      viewBox="-16 0 164 96"
+      fill="none"
+      aria-hidden="true"
+    >
       <defs>
-        <pattern id="megaHalftone" width="5" height="5" patternUnits="userSpaceOnUse">
-          <circle cx="1.2" cy="1.2" r="0.9" fill="#0d0d0d" opacity="0.45" />
+        <pattern id="megaDots" width="3.6" height="3.6" patternUnits="userSpaceOnUse">
+          <rect width="3.6" height="3.6" fill="#f5f0e8" />
+          <circle cx="1" cy="1" r="0.88" fill="#0d0d0d" />
         </pattern>
-        <filter id="megaRough">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
-        </filter>
       </defs>
-      <g className="sticker-cutout" filter="url(#megaRough)">
-        <path className="sticker-outline" d="M31 49L65 43L132 16C145 11 154 18 154 31L153 77C153 90 143 97 131 91L66 66L50 68L54 98C56 111 48 119 35 119H25C16 119 10 113 10 104L8 76C2 73 0 67 2 61C4 54 11 50 20 50L31 49Z" />
-        <path d="M35 51L66 46L132 20C141 17 149 22 149 32L148 77C148 86 141 91 132 87L66 62L36 64Z" fill="#f7f4ee" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
-        <path d="M67 46L132 20C141 17 149 22 149 32L148 77C148 86 141 91 132 87L67 62Z" fill="url(#megaHalftone)" opacity="0.75" />
-        <path d="M83 40L130 21C140 18 148 23 149 33L148 76C148 83 143 88 136 88C130 64 109 47 83 40Z" fill="#0d0d0d" opacity="0.92" />
-        <path d="M35 51L66 46V62L36 64Z" fill="#0d0d0d" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
-        <path d="M16 54H37V77H17C10 77 6 72 6 66C6 59 10 54 16 54Z" fill="#f7f4ee" stroke="#0d0d0d" strokeWidth="4" />
-        <path d="M21 78H49L53 101C55 110 49 115 40 115H30C23 115 19 111 18 104Z" fill="#0d0d0d" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
-        <path d="M25 82H42L45 102" stroke="#f7f4ee" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
-        <path d="M135 29C141 38 141 69 134 81" stroke="#f7f4ee" strokeWidth="3" strokeLinecap="round" opacity="0.82" />
+
+      {/* ── Sound-wave lines (white, left of bell opening) ── */}
+      <path d="M4 14 L-12 4"  stroke="white" strokeWidth="4.5" strokeLinecap="round" />
+      <path d="M0 48 L-14 48" stroke="white" strokeWidth="4.5" strokeLinecap="round" />
+      <path d="M4 82 L-12 92" stroke="white" strokeWidth="4.5" strokeLinecap="round" />
+
+      {/* ── White sticker outline (behind everything) ── */}
+      <g fill="white" stroke="white" strokeWidth="13" strokeLinejoin="round" strokeLinecap="round">
+        {/* Bell cone: wide on left (x=4, y=4→y=92), narrows to neck (x=70, y=24→y=72) */}
+        <path d="M4 4 L4 92 L70 72 L70 24 Z" />
+        {/* Body cylinder */}
+        <rect x="68" y="22" width="48" height="52" rx="6" />
+        {/* Handle */}
+        <path d="M90 72 L92 88 C93 94 84 95 78 91 C72 87 72 80 76 75 L84 72 Z" />
+        {/* Nozzle/mouthpiece */}
+        <rect x="113" y="30" width="16" height="36" rx="5" />
       </g>
-      <path d="M38 26L31 14" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
-      <path d="M56 22L56 8" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
-      <path d="M151 23L162 13" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
-      <path d="M155 47L166 44" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
+
+      {/* ── Bell cone – dark halftone ── */}
+      <path d="M4 4 L4 92 L70 72 L70 24 Z" fill="url(#megaDots)" />
+      <path d="M4 4 L4 92 L70 72 L70 24 Z" fill="#0d0d0d" opacity="0.55" />
+      {/* Bell highlight stripe */}
+      <path d="M10 18 C8 32 8 46 10 60" stroke="white" strokeWidth="2.5" strokeLinecap="round" opacity="0.55" />
+      {/* Bell rim detail */}
+      <line x1="4" y1="4"  x2="4" y2="92" stroke="#0d0d0d" strokeWidth="2.5" />
+
+      {/* ── Body ── */}
+      <rect x="68" y="22" width="46" height="52" rx="6" fill="#0d0d0d" />
+      <path d="M72 28 L108 28" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+      <path d="M72 66 L108 66" stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.3" />
+
+      {/* ── Handle ── */}
+      <path d="M88 72 L90 88 C91 94 82 95 76 91 C70 87 70 80 74 75 L82 72 Z"
+        fill="#0d0d0d" />
+      <path d="M75 77 C73 83 75 89 79 92" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+
+      {/* ── Nozzle/mouthpiece (light-coloured, like a real speaker grille) ── */}
+      <rect x="113" y="32" width="14" height="32" rx="4" fill="#f5f0e8" stroke="#0d0d0d" strokeWidth="2.5" />
+      {[38,44,50,56].map(y => (
+        <line key={y} x1="116" y1={y} x2="124" y2={y}
+          stroke="#0d0d0d" strokeWidth="1.5" strokeLinecap="round" opacity="0.45" />
+      ))}
     </svg>
   )
 }
+
 
 function ShieldIcon() {
   return (
@@ -61,25 +93,62 @@ function CalendarIcon() {
 }
 
 function HandIllus() {
+  // Open palm rising upward — halftone editorial sticker cutout.
+  const knuckleY = [42, 38, 40, 46]
+  const fingers = [
+    { x: 10, y: 14, w: 13, h: 46, rx: 6 }, // index
+    { x: 25, y:  9, w: 14, h: 52, rx: 6 }, // middle (tallest)
+    { x: 41, y: 13, w: 13, h: 48, rx: 6 }, // ring
+    { x: 56, y: 22, w: 12, h: 40, rx: 6 }, // pinky
+  ]
   return (
-    <svg className="collage-illus collage-hand" width="90" height="100" viewBox="0 0 90 100" fill="none" aria-hidden="true" style={{ transform: 'rotate(10deg)', transformOrigin: 'bottom right' }}>
-      <g stroke="var(--ink)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" fill="white">
-        {/* Palm & Fingers */}
-        <path d="M25 80 C 10 70, 5 50, 15 40 C 25 30, 30 40, 30 45 L 30 20 C 30 10, 45 10, 45 20 L 45 40 L 45 15 C 45 5, 60 5, 60 15 L 60 40 L 60 25 C 60 15, 75 15, 75 25 L 75 65 C 75 80, 65 80, 65 80 L 25 80 Z" />
-        {/* Cuff */}
-        <path d="M20 80 L 70 80 C 75 80, 80 85, 80 100 L 10 100 C 10 85, 15 80, 20 80 Z" />
-        {/* Cuff lines */}
-        <line x1="30" y1="80" x2="30" y2="100" />
-        <line x1="45" y1="80" x2="45" y2="100" />
-        <line x1="60" y1="80" x2="60" y2="100" />
-        {/* Inner finger lines */}
-        <line x1="30" y1="45" x2="30" y2="60" />
-        <line x1="45" y1="40" x2="45" y2="60" />
-        <line x1="60" y1="40" x2="60" y2="60" />
+    <svg
+      className="collage-illus collage-hand"
+      width="82" height="90"
+      viewBox="0 0 82 90"
+      fill="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern id="handDots" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect width="4" height="4" fill="#d8d8d8" />
+          <circle cx="1.1" cy="1.1" r="1.05" fill="#0d0d0d" />
+        </pattern>
+      </defs>
+
+      {/* White sticker outline — drawn first so it sits behind */}
+      <g fill="white" stroke="white" strokeWidth="12" strokeLinejoin="round" strokeLinecap="round">
+        {fingers.map((f, i) => <rect key={i} x={f.x} y={f.y} width={f.w} height={f.h} rx={f.rx} />)}
+        <path d="M4 60 C4 50 5 39 11 33 C17 27 21 33 21 42 L21 62 Z" />
+        <rect x="6" y="57" width="66" height="22" rx="5" />
+        <rect x="2" y="73" width="74" height="17" rx="4" />
       </g>
+
+      {/* Halftone fingers + palm */}
+      <g fill="url(#handDots)" stroke="#0d0d0d" strokeWidth="2.5" strokeLinejoin="round">
+        {fingers.map((f, i) => <rect key={i} x={f.x} y={f.y} width={f.w} height={f.h} rx={f.rx} />)}
+        <path d="M4 60 C4 50 5 39 11 33 C17 27 21 33 21 42 L21 62 Z" />
+        <rect x="6" y="57" width="66" height="22" rx="5" />
+      </g>
+
+      {/* Knuckle crease lines */}
+      {fingers.map((f, i) => (
+        <line key={i}
+          x1={f.x + 1} y1={knuckleY[i]}
+          x2={f.x + f.w - 1} y2={knuckleY[i]}
+          stroke="#0d0d0d" strokeWidth="1.8" strokeLinecap="round" opacity="0.55" />
+      ))}
+
+      {/* Dark sleeve/cuff */}
+      <rect x="2" y="73" width="74" height="17" rx="4" fill="#0d0d0d" />
+      {[18, 33, 48, 62].map(x => (
+        <line key={x} x1={x} y1={73} x2={x} y2={90}
+          stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
+      ))}
     </svg>
   )
 }
+
 
 /* ─────────────────────────────────────────
    DATA
@@ -276,9 +345,10 @@ export default function Home() {
           <div className="collage-card collage-pink">
             <span className="card-halftone card-halftone-pink" />
             <div className="collage-pink-inner">
-              <div>
+              <div style={{ position: 'relative', zIndex: 1 }}>
                 <p className="collage-urdu">آواز</p>
-                <p className="collage-sub collage-sub-light">
+                <span className="collage-urdu-sep" aria-hidden="true" />
+                <p className="collage-sub collage-sub-light" style={{ marginTop: '8px' }}>
                   YOUR VOICE.<br />YOUR COUNTRY.
                 </p>
               </div>
@@ -308,10 +378,12 @@ export default function Home() {
           {/* Lavender — Be Heard */}
           <div className="collage-card collage-lavender">
             <span className="card-halftone card-halftone-lavender" />
-            <div>
+            <div style={{ position: 'relative', zIndex: 1 }}>
               <p className="collage-be-heard">BE HEARD</p>
-              <p className="collage-sub collage-sub-dark">Share. Speak up. Create change.</p>
-              <span className="collage-arrow" style={{ marginTop: '8px' }}>→</span>
+              <p className="collage-sub collage-sub-dark" style={{ marginTop: '6px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+                Share.&nbsp; Speak.&nbsp; Impact.
+              </p>
+              <span className="collage-arrow" style={{ marginTop: '10px' }}>→</span>
             </div>
             <HandIllus />
           </div>

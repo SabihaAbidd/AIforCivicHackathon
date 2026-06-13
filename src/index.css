@@ -1896,16 +1896,16 @@ ul { list-style: none; }
    ============================================ */
 .hero-v2 {
   gap: 26px;
-  padding: 22px 0 30px;
+  padding: 16px 0 20px;
   overflow: visible;
 }
 
 @media (min-width: 1024px) {
   .hero-v2 {
-    grid-template-columns: minmax(0, 0.95fr) minmax(460px, 1.05fr);
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
     align-items: center;
-    gap: 44px;
-    padding: 46px 0 40px;
+    gap: 36px;
+    padding: 28px 0 24px;
   }
 }
 
@@ -1922,7 +1922,7 @@ ul { list-style: none; }
 .hero-awaaz {
   width: max-content;
   max-width: 100%;
-  font-size: clamp(4.7rem, 14vw, 7.25rem);
+  font-size: clamp(4rem, 11vw, 6rem);
   font-weight: 900;
   letter-spacing: -0.07em;
   transform: rotate(-2.8deg);
@@ -1935,12 +1935,12 @@ ul { list-style: none; }
 }
 
 .hero-e-badge {
-  min-width: clamp(104px, 18vw, 142px);
-  padding: 12px 22px 14px;
+  min-width: clamp(88px, 15vw, 120px);
+  padding: 10px 18px 12px;
   border: 3px solid var(--ink);
   border-radius: 26px 22px 28px 22px;
   box-shadow: 7px 7px 0 var(--ink);
-  font-size: clamp(2rem, 5vw, 3.35rem);
+  font-size: clamp(1.6rem, 4vw, 2.7rem);
   transform: rotate(-3deg) translateY(8px);
 }
 
@@ -1961,9 +1961,9 @@ ul { list-style: none; }
   border: 3px solid var(--ink);
   border-radius: 16px 18px 14px 16px;
   box-shadow: 9px 9px 0 var(--ink);
-  font-size: clamp(3.15rem, 10vw, 5.9rem);
+  font-size: clamp(2.7rem, 8vw, 5rem);
   font-weight: 900;
-  padding: 8px 26px 18px;
+  padding: 8px 22px 16px;
   transform: rotate(1.1deg);
 }
 
@@ -2036,10 +2036,10 @@ ul { list-style: none; }
 }
 
 .hero-tagline-v2 {
-  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.28;
-  max-width: 510px;
-  margin-top: 22px;
+  max-width: 480px;
+  margin-top: 16px;
 }
 
 .hero-desc-v2 {
@@ -2055,16 +2055,16 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   position: relative;
-  width: min(100%, 560px);
+  width: min(100%, 520px);
   margin: 8px auto 0;
-  min-height: 420px;
-  padding: 12px 4px 4px;
+  min-height: 360px;
+  padding: 8px 4px 4px;
 }
 
 @media (min-width: 1024px) {
   .hero-right {
-    width: min(100%, 590px);
-    min-height: 430px;
+    width: min(100%, 520px);
+    min-height: 380px;
     margin: 0;
     transform: none;
     transform-origin: center;
@@ -2122,11 +2122,12 @@ ul { list-style: none; }
 }
 
 .collage-pink {
-  min-height: 172px;
-  margin: 0 28px -38px 82px;
-  padding: 22px 28px;
+  min-height: 140px;
+  margin: 0 10px -30px 32px;
+  padding: 16px 20px;
   transform: rotate(1.1deg);
   z-index: 4;
+  overflow: visible; /* allow megaphone to slightly protrude */
 }
 
 .collage-pink-inner {
@@ -2136,11 +2137,18 @@ ul { list-style: none; }
 }
 
 .collage-urdu {
-  font-size: clamp(2.7rem, 6vw, 3.9rem);
+  font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 900;
   color: var(--cream);
   text-shadow: 2px 2px 0 rgba(13, 13, 13, 0.12);
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  padding-bottom: 8px;
+  border-bottom: 2.5px solid rgba(245, 240, 232, 0.65);
+}
+
+/* short separator line under آواز */
+.collage-urdu-sep {
+  display: none; /* handled via border-bottom above */
 }
 
 .collage-sub {
@@ -2157,25 +2165,25 @@ ul { list-style: none; }
   display: flex;
   gap: 0;
   align-items: flex-start;
-  width: 92%;
-  margin: 0 0 -34px 22px;
+  width: 96%;
+  margin: 0 0 -28px 14px;
   z-index: 5;
 }
 
 .collage-orange {
-  flex: 0 0 48%;
-  min-height: 142px;
-  padding: 18px 20px 14px;
+  flex: 0 0 46%;
+  min-height: 118px;
+  padding: 14px 16px 12px;
   transform: rotate(-2.4deg);
   z-index: 2;
 }
 
 .collage-mint {
-  flex: 0 0 52%;
-  min-height: 144px;
-  padding: 20px 20px 14px;
+  flex: 0 0 54%;
+  min-height: 122px;
+  padding: 14px 16px 12px;
   margin-left: -4px;
-  margin-top: 18px;
+  margin-top: 14px;
   transform: rotate(2.6deg);
   z-index: 1;
 }
@@ -2189,11 +2197,11 @@ ul { list-style: none; }
 
 .collage-small-title {
   font-family: var(--font-mono);
-  font-size: clamp(0.9rem, 1.55vw, 1.12rem);
+  font-size: clamp(0.88rem, 1.45vw, 1.08rem);
   font-weight: 900;
   line-height: 1.18;
   margin-top: 4px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .collage-support {
@@ -2211,18 +2219,20 @@ ul { list-style: none; }
 }
 
 .collage-lavender {
-  min-height: 138px;
-  margin: 0 78px 0 78px;
-  padding: 22px 26px 18px;
+  min-height: 112px;
+  margin: 0 28px 0 28px;
+  padding: 16px 22px 14px;
   transform: rotate(1.6deg);
   z-index: 2;
+  overflow: visible;
 }
 
 .collage-be-heard {
   width: max-content;
   border-bottom: 3px solid var(--ink);
   font-family: var(--font-mono);
-  font-size: clamp(1.2rem, 2.5vw, 1.62rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-weight: 900;
   letter-spacing: 0.02em;
 }
 
@@ -2234,21 +2244,25 @@ ul { list-style: none; }
 }
 
 .collage-megaphone {
-  width: clamp(118px, 15vw, 150px);
+  /* SVG is 148×96 with left-extended viewBox for sound waves */
+  width: clamp(110px, 14vw, 148px);
   height: auto;
-  margin-right: 2px;
-  transform: rotate(-9deg);
-  filter: drop-shadow(0 8px 0 rgba(13, 13, 13, 0.24));
+  margin-right: -6px;
+  margin-top: -4px;
+  flex-shrink: 0;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 6px 0 rgba(13, 13, 13, 0.2));
 }
 
 .collage-hand {
-  width: clamp(82px, 11vw, 104px);
+  width: clamp(72px, 10vw, 96px);
   height: auto;
+  flex-shrink: 0;
   align-self: flex-end;
-  margin-bottom: -24px;
-  margin-right: 18px;
-  transform: rotate(3deg);
-  filter: drop-shadow(0 8px 0 rgba(13, 13, 13, 0.22));
+  margin-bottom: -2px;
+  margin-right: 2px;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 4px 0 rgba(13, 13, 13, 0.18));
 }
 
 .sticker-outline {
@@ -2312,21 +2326,21 @@ ul { list-style: none; }
 
 @media (max-width: 900px) {
   .hero-v2 {
-    padding-top: 18px;
+    padding-top: 14px;
   }
 
   .hero-right {
-    min-height: 500px;
-    max-width: 580px;
+    min-height: 400px;
+    max-width: 520px;
   }
 
   .collage-pink {
-    margin-left: 42px;
+    margin-left: 22px;
   }
 
   .collage-lavender {
-    margin-left: 38px;
-    margin-right: 42px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }
 
@@ -2360,7 +2374,7 @@ ul { list-style: none; }
   }
 
   .hero-right {
-    min-height: 545px;
+    min-height: 440px;
     padding-inline: 0;
   }
 
@@ -2369,41 +2383,41 @@ ul { list-style: none; }
   }
 
   .collage-pink {
-    min-height: 190px;
-    margin: 0 8px -36px 10px;
-    padding: 24px 20px;
+    min-height: 140px;
+    margin: 0 6px -28px 8px;
+    padding: 16px 14px;
   }
 
   .collage-mid-row {
     flex-direction: column;
-    margin: 0 18px -30px 18px;
+    margin: 0 16px -24px 16px;
   }
 
   .collage-orange,
   .collage-mint {
-    width: 78%;
-    min-height: 150px;
+    width: 80%;
+    min-height: 110px;
   }
 
   .collage-mint {
     align-self: flex-end;
-    margin-top: -22px;
+    margin-top: -18px;
   }
 
   .collage-lavender {
-    margin: 0 16px;
-    min-height: 160px;
-    padding: 24px 20px;
+    margin: 0 12px;
+    min-height: 120px;
+    padding: 16px 16px;
   }
 
   .collage-megaphone {
-    width: 126px;
-    margin-left: -18px;
+    width: 100px;
+    margin-left: -10px;
   }
 
   .collage-hand {
-    width: 96px;
-    margin-right: -4px;
+    width: 76px;
+    margin-right: 0;
   }
 
   .collage-lines-top,
