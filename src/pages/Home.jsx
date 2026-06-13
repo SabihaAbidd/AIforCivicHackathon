@@ -6,21 +6,31 @@ import { IconAsk, IconExplain, IconCards, IconQuiz, IconArrow } from '../Icons.j
 ───────────────────────────────────────── */
 function MegaphoneIllus() {
   return (
-    <svg className="collage-illus" width="92" height="86" viewBox="0 0 92 86" fill="none" aria-hidden="true">
-      {/* Body rectangle */}
-      <rect x="4" y="30" width="22" height="22" rx="2" fill="white" stroke="rgba(245,240,232,0.35)" strokeWidth="1.5"/>
-      {/* Horn / cone */}
-      <path d="M26 22 L70 5 L70 57 L26 50 Z" fill="white" stroke="rgba(245,240,232,0.35)" strokeWidth="1.5"/>
-      {/* Sound waves */}
-      <path d="M75 19 Q83 31 75 43" stroke="white" strokeWidth="2.5" fill="none" strokeLinecap="round" opacity="0.75"/>
-      <path d="M82 13 Q91 31 82 49" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.4"/>
-      {/* Bell end detail */}
-      <rect x="68" y="3" width="4" height="54" rx="1" fill="white" stroke="rgba(245,240,232,0.35)" strokeWidth="1"/>
-      {/* Handle / base */}
-      <path d="M4 52 L26 52 L26 64 Q26 76 15 76 Q4 76 4 64 Z" fill="white" stroke="rgba(245,240,232,0.35)" strokeWidth="1.5"/>
-      {/* Grip lines on handle */}
-      <line x1="8" y1="60" x2="20" y2="60" stroke="rgba(245,240,232,0.4)" strokeWidth="1.5" strokeLinecap="round"/>
-      <line x1="8" y1="66" x2="20" y2="66" stroke="rgba(245,240,232,0.4)" strokeWidth="1.5" strokeLinecap="round"/>
+    <svg className="collage-illus collage-megaphone" width="168" height="126" viewBox="0 0 168 126" fill="none" aria-hidden="true">
+      <defs>
+        <pattern id="megaHalftone" width="5" height="5" patternUnits="userSpaceOnUse">
+          <circle cx="1.2" cy="1.2" r="0.9" fill="#0d0d0d" opacity="0.45" />
+        </pattern>
+        <filter id="megaRough">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" />
+        </filter>
+      </defs>
+      <g className="sticker-cutout" filter="url(#megaRough)">
+        <path className="sticker-outline" d="M31 49L65 43L132 16C145 11 154 18 154 31L153 77C153 90 143 97 131 91L66 66L50 68L54 98C56 111 48 119 35 119H25C16 119 10 113 10 104L8 76C2 73 0 67 2 61C4 54 11 50 20 50L31 49Z" />
+        <path d="M35 51L66 46L132 20C141 17 149 22 149 32L148 77C148 86 141 91 132 87L66 62L36 64Z" fill="#f7f4ee" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
+        <path d="M67 46L132 20C141 17 149 22 149 32L148 77C148 86 141 91 132 87L67 62Z" fill="url(#megaHalftone)" opacity="0.75" />
+        <path d="M83 40L130 21C140 18 148 23 149 33L148 76C148 83 143 88 136 88C130 64 109 47 83 40Z" fill="#0d0d0d" opacity="0.92" />
+        <path d="M35 51L66 46V62L36 64Z" fill="#0d0d0d" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
+        <path d="M16 54H37V77H17C10 77 6 72 6 66C6 59 10 54 16 54Z" fill="#f7f4ee" stroke="#0d0d0d" strokeWidth="4" />
+        <path d="M21 78H49L53 101C55 110 49 115 40 115H30C23 115 19 111 18 104Z" fill="#0d0d0d" stroke="#0d0d0d" strokeWidth="4" strokeLinejoin="round" />
+        <path d="M25 82H42L45 102" stroke="#f7f4ee" strokeWidth="3" strokeLinecap="round" opacity="0.75" />
+        <path d="M135 29C141 38 141 69 134 81" stroke="#f7f4ee" strokeWidth="3" strokeLinecap="round" opacity="0.82" />
+      </g>
+      <path d="M38 26L31 14" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
+      <path d="M56 22L56 8" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
+      <path d="M151 23L162 13" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
+      <path d="M155 47L166 44" stroke="#f7f4ee" strokeWidth="5" strokeLinecap="round" />
     </svg>
   )
 }
@@ -52,21 +62,21 @@ function CalendarIcon() {
 
 function HandIllus() {
   return (
-    <svg className="collage-illus" width="72" height="90" viewBox="0 0 72 90" fill="none" aria-hidden="true">
-      {/* Fingers */}
-      <rect x="18" y="10" width="10" height="36" rx="5" fill="white" stroke="var(--ink)" strokeWidth="2"/>
-      <rect x="29" y="4"  width="10" height="42" rx="5" fill="white" stroke="var(--ink)" strokeWidth="2"/>
-      <rect x="40" y="7"  width="10" height="40" rx="5" fill="white" stroke="var(--ink)" strokeWidth="2"/>
-      <rect x="51" y="14" width="9"  height="32" rx="4.5" fill="white" stroke="var(--ink)" strokeWidth="2"/>
-      {/* Palm */}
-      <rect x="18" y="40" width="42" height="40" rx="7" fill="white" stroke="var(--ink)" strokeWidth="2"/>
-      {/* Thumb */}
-      <path d="M18 58 Q5 58 5 70 Q5 82 18 82" fill="white" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round"/>
-      {/* Palm texture dots */}
-      <circle cx="35" cy="62" r="1.5" fill="var(--ink)" opacity="0.3"/>
-      <circle cx="42" cy="62" r="1.5" fill="var(--ink)" opacity="0.3"/>
-      <circle cx="35" cy="70" r="1.5" fill="var(--ink)" opacity="0.3"/>
-      <circle cx="42" cy="70" r="1.5" fill="var(--ink)" opacity="0.3"/>
+    <svg className="collage-illus collage-hand" width="90" height="100" viewBox="0 0 90 100" fill="none" aria-hidden="true" style={{ transform: 'rotate(10deg)', transformOrigin: 'bottom right' }}>
+      <g stroke="var(--ink)" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" fill="white">
+        {/* Palm & Fingers */}
+        <path d="M25 80 C 10 70, 5 50, 15 40 C 25 30, 30 40, 30 45 L 30 20 C 30 10, 45 10, 45 20 L 45 40 L 45 15 C 45 5, 60 5, 60 15 L 60 40 L 60 25 C 60 15, 75 15, 75 25 L 75 65 C 75 80, 65 80, 65 80 L 25 80 Z" />
+        {/* Cuff */}
+        <path d="M20 80 L 70 80 C 75 80, 80 85, 80 100 L 10 100 C 10 85, 15 80, 20 80 Z" />
+        {/* Cuff lines */}
+        <line x1="30" y1="80" x2="30" y2="100" />
+        <line x1="45" y1="80" x2="45" y2="100" />
+        <line x1="60" y1="80" x2="60" y2="100" />
+        {/* Inner finger lines */}
+        <line x1="30" y1="45" x2="30" y2="60" />
+        <line x1="45" y1="40" x2="45" y2="60" />
+        <line x1="60" y1="40" x2="60" y2="60" />
+      </g>
     </svg>
   )
 }
@@ -187,7 +197,10 @@ export default function Home() {
           <div className="hero-title-area">
             {/* Floating doodles */}
             <span className="doodle doodle-spark-tr" aria-hidden="true">✦</span>
-            <span className="doodle doodle-spark-ml" aria-hidden="true">✦</span>
+            <span className="doodle doodle-star-left" aria-hidden="true">*</span>
+            <span className="doodle doodle-pop-left" aria-hidden="true" />
+            <span className="doodle doodle-pop-right" aria-hidden="true" />
+            <span className="doodle doodle-swoop" aria-hidden="true" />
 
             <h1 id="hero-title">
               <span className="hero-awaaz">Awaaz</span>
@@ -254,9 +267,14 @@ export default function Home() {
 
         {/* ── RIGHT: Card collage (desktop) ── */}
         <div className="hero-right" aria-hidden="true">
+          <span className="collage-doodle collage-lines-top" />
+          <span className="collage-doodle collage-lines-right" />
+          <span className="collage-doodle collage-loop" />
+          <span className="collage-doodle collage-spark" />
 
           {/* Pink — آواز card */}
           <div className="collage-card collage-pink">
+            <span className="card-halftone card-halftone-pink" />
             <div className="collage-pink-inner">
               <div>
                 <p className="collage-urdu">آواز</p>
@@ -271,23 +289,28 @@ export default function Home() {
           {/* Middle row: Orange + Mint */}
           <div className="collage-mid-row">
             <div className="collage-card collage-orange">
+              <span className="card-halftone card-halftone-orange" />
               <ShieldIcon />
               <p className="collage-small-title">KNOW<br />YOUR<br />RIGHTS</p>
+              <p className="collage-support">Learn the laws. Know your power.</p>
               <span className="collage-arrow">→</span>
             </div>
 
             <div className="collage-card collage-mint">
+              <span className="card-halftone card-halftone-mint" />
               <CalendarIcon />
               <p className="collage-small-title">DAILY<br />CIVIC<br />DROPS</p>
+              <p className="collage-support">Short. Simple. Super useful.</p>
               <span className="collage-arrow">→</span>
             </div>
           </div>
 
           {/* Lavender — Be Heard */}
           <div className="collage-card collage-lavender">
+            <span className="card-halftone card-halftone-lavender" />
             <div>
               <p className="collage-be-heard">BE HEARD</p>
-              <p className="collage-sub collage-sub-dark">SHARE. SPEAK. IMPACT.</p>
+              <p className="collage-sub collage-sub-dark">Share. Speak up. Create change.</p>
               <span className="collage-arrow" style={{ marginTop: '8px' }}>→</span>
             </div>
             <HandIllus />
