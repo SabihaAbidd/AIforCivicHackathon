@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { IconAsk, IconExplain, IconCards, IconQuiz, IconArrow } from '../Icons.jsx'
+import ImpactSection from '../components/ImpactSection.jsx'
 
 /* ─────────────────────────────────────────
    HERO ILLUSTRATIONS (inline SVG)
@@ -93,19 +94,24 @@ function CalendarIcon() {
 }
 
 function HandIllus() {
-  // Open palm rising upward — halftone editorial sticker cutout.
-  const knuckleY = [42, 38, 40, 46]
+  // Open palm facing forward — halftone editorial sticker cutout.
+  // 4 fingers point UP; thumb is a HORIZONTAL rect on the LEFT, perpendicular.
   const fingers = [
-    { x: 10, y: 14, w: 13, h: 46, rx: 6 }, // index
-    { x: 25, y:  9, w: 14, h: 52, rx: 6 }, // middle (tallest)
-    { x: 41, y: 13, w: 13, h: 48, rx: 6 }, // ring
-    { x: 56, y: 22, w: 12, h: 40, rx: 6 }, // pinky
+    { x: 29, y: 13, w: 12, h: 47, rx: 5 }, // index
+    { x: 43, y:  8, w: 13, h: 53, rx: 5 }, // middle (tallest)
+    { x: 58, y: 12, w: 12, h: 49, rx: 5 }, // ring
+    { x: 72, y: 21, w: 11, h: 41, rx: 5 }, // pinky
   ]
+  const knuckleY = [42, 37, 40, 46]
+  // Thumb: horizontal rect on RIGHT, starting AFTER the pinky's right edge (x=60),
+  // placed at y=44–57 so it is clearly separated from the vertical fingers.
+  const thumb = { x: 4, y: 58, w: 22, h: 12, rx: 6 }
+
   return (
     <svg
       className="collage-illus collage-hand"
-      width="82" height="90"
-      viewBox="0 0 82 90"
+      width="92" height="90"
+      viewBox="0 0 92 90"
       fill="none"
       aria-hidden="true"
     >
@@ -116,32 +122,38 @@ function HandIllus() {
         </pattern>
       </defs>
 
-      {/* White sticker outline — drawn first so it sits behind */}
+      {/* ── White sticker outline (lowest layer) ── */}
       <g fill="white" stroke="white" strokeWidth="12" strokeLinejoin="round" strokeLinecap="round">
         {fingers.map((f, i) => <rect key={i} x={f.x} y={f.y} width={f.w} height={f.h} rx={f.rx} />)}
-        <path d="M4 60 C4 50 5 39 11 33 C17 27 21 33 21 42 L21 62 Z" />
-        <rect x="6" y="57" width="66" height="22" rx="5" />
-        <rect x="2" y="73" width="74" height="17" rx="4" />
+        {/* Thumb — perpendicular horizontal rect on right */}
+        <rect x={thumb.x} y={thumb.y} width={thumb.w} height={thumb.h} rx={thumb.rx} />
+        {/* Palm */}
+        <rect x="24" y="57" width="60" height="20" rx="5" />
+        {/* Sleeve */}
+        <rect x="24" y="73" width="60" height="17" rx="4" />
       </g>
 
-      {/* Halftone fingers + palm */}
+      {/* ── Halftone fill — fingers + thumb + palm ── */}
       <g fill="url(#handDots)" stroke="#0d0d0d" strokeWidth="2.5" strokeLinejoin="round">
         {fingers.map((f, i) => <rect key={i} x={f.x} y={f.y} width={f.w} height={f.h} rx={f.rx} />)}
-        <path d="M4 60 C4 50 5 39 11 33 C17 27 21 33 21 42 L21 62 Z" />
-        <rect x="6" y="57" width="66" height="22" rx="5" />
+        <rect x={thumb.x} y={thumb.y} width={thumb.w} height={thumb.h} rx={thumb.rx} />
+        <rect x="24" y="57" width="60" height="20" rx="5" />
       </g>
 
-      {/* Knuckle crease lines */}
+      {/* ── Finger knuckle creases ── */}
       {fingers.map((f, i) => (
         <line key={i}
           x1={f.x + 1} y1={knuckleY[i]}
           x2={f.x + f.w - 1} y2={knuckleY[i]}
           stroke="#0d0d0d" strokeWidth="1.8" strokeLinecap="round" opacity="0.55" />
       ))}
+      {/* Thumb knuckle crease (vertical, on the thumb body) */}
+      <line x1={thumb.x + 14} y1={thumb.y + 2} x2={thumb.x + 14} y2={thumb.y + thumb.h - 2}
+        stroke="#0d0d0d" strokeWidth="1.6" strokeLinecap="round" opacity="0.5" />
 
-      {/* Dark sleeve/cuff */}
-      <rect x="2" y="73" width="74" height="17" rx="4" fill="#0d0d0d" />
-      {[18, 33, 48, 62].map(x => (
+      {/* ── Dark sleeve/cuff ── */}
+      <rect x="24" y="73" width="60" height="17" rx="4" fill="#0d0d0d" />
+      {[36, 49, 62, 75].map(x => (
         <line key={x} x1={x} y1={73} x2={x} y2={90}
           stroke="white" strokeWidth="1.5" strokeLinecap="round" opacity="0.35" />
       ))}
@@ -336,11 +348,8 @@ export default function Home() {
 
         {/* ── RIGHT: Card collage (desktop) ── */}
         <div className="hero-right" aria-hidden="true">
-          <span className="collage-doodle collage-lines-top" />
-          <span className="collage-doodle collage-lines-right" />
+          {/* collage-lines-top removed — cross doodle not in reference */}
           <span className="collage-doodle collage-loop" />
-          <span className="collage-doodle collage-spark" />
-
           {/* Pink — آواز card */}
           <div className="collage-card collage-pink">
             <span className="card-halftone card-halftone-pink" />
@@ -361,17 +370,21 @@ export default function Home() {
             <div className="collage-card collage-orange">
               <span className="card-halftone card-halftone-orange" />
               <ShieldIcon />
-              <p className="collage-small-title">KNOW<br />YOUR<br />RIGHTS</p>
-              <p className="collage-support">Learn the laws. Know your power.</p>
-              <span className="collage-arrow">→</span>
+              <div className="collage-copy">
+                <p className="collage-small-title">KNOW<br />YOUR<br />RIGHTS</p>
+                <p className="collage-support">Learn the laws. Know your power.</p>
+                <span className="collage-arrow">→</span>
+              </div>
             </div>
 
             <div className="collage-card collage-mint">
               <span className="card-halftone card-halftone-mint" />
               <CalendarIcon />
-              <p className="collage-small-title">DAILY<br />CIVIC<br />DROPS</p>
-              <p className="collage-support">Short. Simple. Super useful.</p>
-              <span className="collage-arrow">→</span>
+              <div className="collage-copy">
+                <p className="collage-small-title">DAILY<br />CIVIC<br />DROPS</p>
+                <p className="collage-support">Short. Simple. Super useful.</p>
+                <span className="collage-arrow">→</span>
+              </div>
             </div>
           </div>
 
@@ -380,7 +393,7 @@ export default function Home() {
             <span className="card-halftone card-halftone-lavender" />
             <div style={{ position: 'relative', zIndex: 1 }}>
               <p className="collage-be-heard">BE HEARD</p>
-              <p className="collage-sub collage-sub-dark" style={{ marginTop: '6px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+              <p className="collage-sub collage-sub-dark" style={{ marginTop: '8px', letterSpacing: '0.04em', textTransform: 'uppercase' }}>
                 Share.&nbsp; Speak.&nbsp; Impact.
               </p>
               <span className="collage-arrow" style={{ marginTop: '10px' }}>→</span>
@@ -424,6 +437,9 @@ export default function Home() {
           </div>
         ))}
       </section>
+
+      {/* ── IMPACT ── */}
+      <ImpactSection />
 
       {/* ── CTA ── */}
       <section className="cta-section" aria-labelledby="cta-heading">

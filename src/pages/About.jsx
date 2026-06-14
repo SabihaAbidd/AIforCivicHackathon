@@ -1,3 +1,5 @@
+import ImpactSection from '../components/ImpactSection.jsx'
+
 const STACK = [
   '🤖 AI-Powered',
   '🇵🇰 Pakistan-Focused',
@@ -6,15 +8,6 @@ const STACK = [
   '✊ Gen Z First',
   '🆓 Free to Use',
   '⚡ Real-Time',
-]
-
-const TEAM = [
-  { emoji: '👩🏽‍💻', name: 'Layla Raza',     role: 'Product Design'    },
-  { emoji: '👨🏽‍💻', name: 'Bilal Tariq',    role: 'AI & Engineering'  },
-  { emoji: '✍️',    name: 'Noor Fatima',   role: 'Civic Research'    },
-  { emoji: '🎨',    name: 'Saad Ahmed',    role: 'Visual Identity'   },
-  { emoji: '📢',    name: 'Hina Malik',    role: 'Community & GTM'   },
-  { emoji: '⚖️',    name: 'Omar Sheikh',   role: 'Legal & Policy'    },
 ]
 
 export default function About() {
@@ -58,6 +51,9 @@ export default function About() {
         </div>
       </div>
 
+      {/* Impact — why it matters */}
+      <ImpactSection />
+
       {/* Stack pills */}
       <div className="section-label">
         <span className="section-label-text mono">Built with</span>
@@ -69,67 +65,7 @@ export default function About() {
         ))}
       </div>
 
-      {/* Team */}
-      <div className="about-team-section">
-        <div className="section-label">
-          <span className="section-label-text mono">Team</span>
-          <div className="section-label-line" />
-        </div>
-
-        <div className="about-team-grid">
-          {TEAM.map((member, i) => (
-            <div
-              key={i}
-              className="about-team-card anim-fade-up"
-              style={{ animationDelay: `${i * 0.06}s` }}
-              id={`team-${member.name.toLowerCase().replace(' ', '-')}`}
-            >
-              <div
-                className="about-team-avatar"
-                style={{ background: ['#ff2d7a','#ff9c2a','#3df5b4','#c4a8ff','#ff6b47','#7dbb8a'][i] }}
-                aria-hidden="true"
-              >
-                {member.emoji}
-              </div>
-              <p className="about-team-name">{member.name}</p>
-              <p className="about-team-role">{member.role}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div
-        style={{
-          border: 'var(--border)',
-          borderRadius: 'var(--radius)',
-          background: 'var(--lavender)',
-          padding: '24px 20px',
-          boxShadow: 'var(--shadow)',
-          marginBottom: '32px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '14px',
-          alignItems: 'flex-start',
-        }}
-      >
-        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--ink-muted)' }}>
-          Join the movement
-        </p>
-        <p style={{ fontSize: '1.1rem', fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.3 }}>
-          Want to contribute, partner, or just say salaam?
-        </p>
-        <button
-          id="about-contact-btn"
-          className="cta-btn"
-          style={{ background: 'var(--ink)', border: '2px solid var(--ink)', boxShadow: '4px 4px 0 var(--lavender), 4px 4px 0 2px var(--ink)' }}
-          type="button"
-        >
-          Get in Touch →
-        </button>
-      </div>
-
-      <div style={{ paddingBottom: '16px' }} />
+      <div style={{ paddingBottom: '24px' }} />
     </div>
   )
 }
